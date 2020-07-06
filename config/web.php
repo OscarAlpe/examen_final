@@ -4,7 +4,9 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'ExamenFinal',
+    'name' => 'Examen Final de Yii2',
+    'language' => 'es',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
