@@ -6,8 +6,10 @@ use Yii;
 
 class PruebasController extends \yii\web\Controller
 {
+    public $layout = 'pruebas';
+    
     public function actionUno() {
-        return "Hola Mundo";
+        return $this->render("uno");
     }
 
     public function actionDos() {
@@ -16,8 +18,20 @@ class PruebasController extends \yii\web\Controller
                             $fecha = new \DateTime();
                             $fecha->modify('+2 day');
                             $fecha->add(new \DateInterval('PT10M'));
-                            echo $fecha->format('d-m-Y H:i:s');
+                            return $fecha->format('d-m-Y H:i:s');
                         };
-        return $fechaActual();
+
+        return $this->render("dos", [
+                "fechaActual" => $fechaActual()
+            ]);
     }
+    
+    public function actionTres() {
+        return $this->render("tres");
+    }
+    
+    public function actionIndex() {
+        return $this->render("index");
+    }
+
 }
