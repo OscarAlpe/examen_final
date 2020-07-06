@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\components\Cadena;
 
 class PruebasController extends \yii\web\Controller
 {
@@ -32,6 +33,15 @@ class PruebasController extends \yii\web\Controller
     
     public function actionIndex() {
         return $this->render("index");
+    }
+    
+    public function actionCuatro() {
+        $c = new Cadena("ejemplo del camión");
+        return $this->render("cuatro", [
+            "texto" => $c->getNombre(),
+            "numero" => $c->getCalcularVocales(),
+            "longitud" => $c->getLongitud(),
+        ]);
     }
 
 }

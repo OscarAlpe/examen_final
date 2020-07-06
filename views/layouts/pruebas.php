@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => 'Uno', 'url' => ['/pruebas/uno']],
             ['label' => 'Dos', 'url' => ['/pruebas/dos']],
             ['label' => 'Tres', 'url' => ['/pruebas/tres']],
+            ['label' => 'Cuatro', 'url' => ['/pruebas/cuatro']],
         ],
     ]);
     NavBar::end();
