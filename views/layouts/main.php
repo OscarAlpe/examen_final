@@ -38,21 +38,11 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            ['label' => 'Destacados', 'url' => ['/site/index']],
+            ['label' => 'Comienzo inminente', 'url' => ['/site/comienzo']],
+            ['label' => 'Todos', 'url' => ['/site/todos']],
+            ['label' => 'Buscar', 'url' => ['/site/buscador']],
+            ['label' => 'Solicitar información', 'url' => ['/site/informacion']],
         ],
     ]);
     NavBar::end();
@@ -67,11 +57,31 @@ AppAsset::register($this);
     </div>
 </div>
 
+<?php
+NavBar::begin([
+    'brandLabel' => '<img id="logo" width="55" src="imgs/logotipo-alpe-formacion.png" alt="Alpe">',
+    'brandUrl' => Yii::$app->homeUrl,
+    'options' => [
+        'class' => 'navbar- navbar-inverse navbar-fixed-botom',
+    ],
+]);
+
+echo '<div class="navbar-right">';
+echo '<div class="btn-toolbar" role="toolbar">';
+echo Html::a('Portal Educativo', 'http://educa.alpeformacion.es', ['class'=>'btn btn-success', 'style' => 'border-radius:0; font-size: 25px;']);
+echo Html::a('Web alpe', 'http://www.alpeformacion.es', ['class'=>'btn btn-success', 'style' => 'border-radius:0; font-size: 25px;']);
+echo Html::a('Donde estamos', 'https://www.alpeformacion.es/contacto/', ['class'=>'btn btn-success', 'style' => 'border-radius:0; font-size: 25px;']);
+echo Html::a('Datos de contacto', 'https://www.alpeformacion.es/contacto/', ['class'=>'btn btn-success', 'style' => 'border-radius:0; font-size: 25px;']);
+echo '</div>';
+echo '</div>';
+
+NavBar::end();
+?>
+
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-left">&copy; Oscar Megía López <?= date('Y') ?></p>
+        <p class="pull-right"></p>
     </div>
 </footer>
 
