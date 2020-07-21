@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "ciudades".
  *
- * @property int|null $id
+ * @property int $id
  * @property string|null $nombre
  * @property float|null $habitantes
  * @property string|null $escudo
@@ -29,7 +29,6 @@ class Ciudades extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'integer'],
             [['habitantes'], 'number'],
             [['nombre', 'escudo', 'mapa'], 'string', 'max' => 255],
         ];
