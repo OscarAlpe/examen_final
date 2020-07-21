@@ -41,33 +41,12 @@ CREATE TABLE IF NOT EXISTS cursos (
   titulo varchar(255) DEFAULT NULL,
   descripcion varchar(255) DEFAULT NULL,
   textoCorto text DEFAULT NULL,
+  textoLargo text DEFAULT NULL,
   fechaComienzo datetime DEFAULT NULL,
   fechaFin datetime DEFAULT NULL,
   duracionHoras int(11) DEFAULT NULL,
   destacado tinyint(1) DEFAULT NULL,
-  foroPortada varchar(255) DEFAULT NULL,
-  pdf varchar(255) DEFAULT NULL,
-  comenzado tinyint(1) DEFAULT NULL,
-  finalizado tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (codigoCurso)
-)
-ENGINE = INNODB,
-CHARACTER SET utf8,
-COLLATE utf8_spanish_ci;
-
---
--- Create table `cursos`
---
-CREATE TABLE IF NOT EXISTS cursos (
-  codigoCurso int(11) NOT NULL AUTO_INCREMENT,
-  titulo varchar(255) DEFAULT NULL,
-  descripcion varchar(255) DEFAULT NULL,
-  textoCorto text DEFAULT NULL,
-  fechaComienzo datetime DEFAULT NULL,
-  fechaFin datetime DEFAULT NULL,
-  duracionHoras int(11) DEFAULT NULL,
-  destacado tinyint(1) DEFAULT NULL,
-  foroPortada varchar(255) DEFAULT NULL,
+  fotoPortada varchar(255) DEFAULT NULL,
   pdf varchar(255) DEFAULT NULL,
   comenzado tinyint(1) DEFAULT NULL,
   finalizado tinyint(1) DEFAULT NULL,
@@ -88,7 +67,7 @@ CREATE TABLE IF NOT EXISTS inscripciones (
   fechaNacimiento datetime DEFAULT NULL,
   estudios varchar(255) DEFAULT NULL,
   telefono varchar(255) DEFAULT NULL,
-  Desempleado tinyint(1) DEFAULT NULL,
+  desempleado tinyint(1) DEFAULT NULL,
   curso int(11) DEFAULT NULL,
   PRIMARY KEY (id)
 )

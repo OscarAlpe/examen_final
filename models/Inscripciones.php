@@ -14,7 +14,7 @@ use Yii;
  * @property string|null $fechaNacimiento
  * @property string|null $estudios
  * @property string|null $telefono
- * @property int|null $Desempleado
+ * @property int|null $desempleado
  * @property int|null $curso
  *
  * @property Cursos $curso0
@@ -36,7 +36,7 @@ class Inscripciones extends \yii\db\ActiveRecord
     {
         return [
             [['fechaNacimiento'], 'safe'],
-            [['Desempleado', 'curso'], 'integer'],
+            [['desempleado', 'curso'], 'integer'],
             [['nombre', 'apellidos', 'estudios', 'telefono'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 50],
             [['curso'], 'exist', 'skipOnError' => true, 'targetClass' => Cursos::className(), 'targetAttribute' => ['curso' => 'codigoCurso']],
@@ -56,7 +56,7 @@ class Inscripciones extends \yii\db\ActiveRecord
             'fechaNacimiento' => 'Fecha Nacimiento',
             'estudios' => 'Estudios',
             'telefono' => 'Telefono',
-            'Desempleado' => 'Desempleado',
+            'desempleado' => 'Desempleado',
             'curso' => 'Curso',
         ];
     }

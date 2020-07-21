@@ -11,11 +11,12 @@ use Yii;
  * @property string|null $titulo
  * @property string|null $descripcion
  * @property string|null $textoCorto
+ * @property string|null $textoLargo
  * @property string|null $fechaComienzo
  * @property string|null $fechaFin
  * @property int|null $duracionHoras
  * @property int|null $destacado
- * @property string|null $foroPortada
+ * @property string|null $fotoPortada
  * @property string|null $pdf
  * @property int|null $comenzado
  * @property int|null $finalizado
@@ -38,10 +39,10 @@ class Cursos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['textoCorto'], 'string'],
+            [['textoCorto', 'textoLargo'], 'string'],
             [['fechaComienzo', 'fechaFin'], 'safe'],
             [['duracionHoras', 'destacado', 'comenzado', 'finalizado'], 'integer'],
-            [['titulo', 'descripcion', 'foroPortada', 'pdf'], 'string', 'max' => 255],
+            [['titulo', 'descripcion', 'fotoPortada', 'pdf'], 'string', 'max' => 255],
         ];
     }
 
@@ -55,11 +56,12 @@ class Cursos extends \yii\db\ActiveRecord
             'titulo' => 'Titulo',
             'descripcion' => 'Descripcion',
             'textoCorto' => 'Texto Corto',
+            'textoLargo' => 'Texto Largo',
             'fechaComienzo' => 'Fecha Comienzo',
             'fechaFin' => 'Fecha Fin',
             'duracionHoras' => 'Duracion Horas',
             'destacado' => 'Destacado',
-            'foroPortada' => 'Foro Portada',
+            'fotoPortada' => 'Foto Portada',
             'pdf' => 'Pdf',
             'comenzado' => 'Comenzado',
             'finalizado' => 'Finalizado',
