@@ -79,7 +79,20 @@ class SiteController extends Controller
 
     public function actionComienzo()
     {
-        return $this->render('comienzo');
+        $query = Cursos::find()->select("cursos.*")
+          ->where(['=', 'cursos.comenzado', 0]);
+        ;
+        
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+              'pageSize' => 4,
+            ],
+        ]);
+
+        return $this->render('index',[
+            "dataProvider" => $dataProvider,
+        ]);
     }
 
     public function actionTodos()

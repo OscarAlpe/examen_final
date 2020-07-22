@@ -12,9 +12,9 @@ $this->title = 'My Yii Application';
         <p class="lead">En el siguiente listado podemos ver los cursos pricipales que Alpe Formacion tiene actualmente</p>
 
         <p>
-          <a class="btn btn-lg btn-primary" href="site/todos">Ver todos los cursos</a>
-          <a class="btn btn-lg btn-primary" href="site/comienzo">Cursos comienzo inminente</a>
-          <a class="btn btn-lg btn-primary" href="site/buscador">Buscar un curso</a>
+          <a class="btn btn-lg btn-primary" href="todos">Ver todos los cursos</a>
+          <a class="btn btn-lg btn-primary" href="comienzo">Cursos comienzo inminente</a>
+          <a class="btn btn-lg btn-primary" href="buscador">Buscar un curso</a>
         </p>
     </div>
 
