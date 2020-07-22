@@ -82,7 +82,7 @@ class SiteController extends Controller
         $query = Cursos::find()->select("cursos.*")
           ->where(['=', 'cursos.comenzado', 0]);
         ;
-        
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
@@ -97,7 +97,18 @@ class SiteController extends Controller
 
     public function actionTodos()
     {
-        return $this->render('todos');
+        $query = Cursos::find()->select("codigoCurso, titulo, descripcion, textoCorto, fechaComienzo, duracionHoras");
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+              'pageSize' => 20,
+            ],
+        ]);
+
+        return $this->render('todos',[
+            "dataProvider" => $dataProvider,
+        ]);
     }
 
     public function actionBuscador()

@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
+use yii\helpers\Html;
 ?>
 <div class="site-index">
 
@@ -12,9 +13,9 @@ $this->title = 'My Yii Application';
         <p class="lead">En el siguiente listado podemos ver los cursos pricipales que Alpe Formacion tiene actualmente</p>
 
         <p>
-          <a class="btn btn-lg btn-primary" href="todos">Ver todos los cursos</a>
-          <a class="btn btn-lg btn-primary" href="comienzo">Cursos comienzo inminente</a>
-          <a class="btn btn-lg btn-primary" href="buscador">Buscar un curso</a>
+          <?= Html::a('Ver todos los cursos', '@web/site/todos', ['class' => 'btn btn-lg btn-primary']) ?>
+          <?= Html::a('Cursos comienzo inminente', '@web/site/comienzo', ['class' => 'btn btn-lg btn-primary']) ?>
+          <?= Html::a('Buscar un curso', '@web/site/buscador', ['class' => 'btn btn-lg btn-primary']) ?>
         </p>
     </div>
 
