@@ -11,6 +11,7 @@ use app\models\Cursos;
 use yii\data\ActiveDataProvider;
 use app\models\SolicitarInformacion;
 use app\models\Inscribirse;
+use app\models\TodosSearch;
 
 class SiteController extends Controller
 {
@@ -113,7 +114,14 @@ class SiteController extends Controller
 
     public function actionBuscador()
     {
-        return $this->render('buscador');
+        $searchModel = new TodosSearch();
+        
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('buscador',[
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+        ]);
     }
 
     public function actionInformacion()
