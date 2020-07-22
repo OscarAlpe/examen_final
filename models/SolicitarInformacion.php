@@ -31,7 +31,7 @@ class SolicitarInformacion extends Model {
         return [
             'nombre' => 'Introduce tu nombre',
             'apellidos' => 'Introduce tus apellidos',
-            'fechaNacimiento' => 'Introduce tu fecha de nacimiento',
+            'fechaNacimiento' => 'Introduce tu fecha de nacimiento (formato: dd/mm/aaaa)',
             'nombreCurso' => 'Introduce el nombre del curso',
             'correo' => 'Introduce tu correo electrónico',
             'telefono' => 'Introduce tu teléfono',

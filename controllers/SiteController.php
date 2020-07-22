@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\Cursos;
 use yii\data\ActiveDataProvider;
 use app\models\SolicitarInformacion;
+use app\models\Inscribirse;
 
 class SiteController extends Controller
 {
@@ -96,13 +97,29 @@ class SiteController extends Controller
         $model = new SolicitarInformacion();
         if ($model->load(Yii::$app->request->post()) 
                 &&
-            $model->contact(Yii::$app->params['adminEmail'])) {
+            $model->validate()) {
             Yii::$app->session->setFlash('enviadaSolicitud');
             
             return $this->refresh();
         }
         
         return $this->render('informacion', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionInscribirse()
+    {
+        $model = new Inscribirse();
+        if ($model->load(Yii::$app->request->post()) 
+                &&
+            $model->validate()) {
+            Yii::$app->session->setFlash('enviadaInscripcion');
+            
+            return $this->refresh();
+        }
+        
+        return $this->render('inscribirse', [
             'model' => $model,
         ]);
     }

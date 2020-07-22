@@ -36,7 +36,7 @@ class Cursos extends \yii\bootstrap\Widget {
         $salida .=      '<span class="col-sm-1 col-md-1 col-lg-1 col-xl-1"></span>';
         $salida .=      Html::a("Solicitar informacion", "@web/site/informacion?titulo=" . $this->titulo, ['class' => 'btn btn-primary col-sm-4 col-md-4 col-lg-4 col-xl-4']);
         $salida .=      '<span class="col-sm-1 col-md-1 col-lg-1 col-xl-1"></span>';
-        $salida .=      Html::a("Inscribirse", "inscribirse", ['class' => 'btn btn-primary col-sm-2 col-md-2 col-lg-2 col-xl-2']);
+        $salida .=      Html::a("Inscribirse", "@web/site/inscribirse?curso=" . $this->codigoCurso . '&titulo=' . $this->titulo, ['class' => 'btn btn-primary col-sm-2 col-md-2 col-lg-2 col-xl-2']);
         $salida .=    '</div>';
         $salida .=  '</div>';
         $salida .= '</div>';
