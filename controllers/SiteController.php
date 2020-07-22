@@ -7,8 +7,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\Cursos;
+use yii\data\ActiveDataProvider;
+use app\models\SolicitarInformacion;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = Cursos::find()->select("cursos.*");
+        
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+              'pageSize' => 4,
+            ],
+        ]);
+
+        return $this->render('index',[
+            "dataProvider" => $dataProvider,
+        ]);
     }
 
     public function actionComienzo()
@@ -81,7 +93,18 @@ class SiteController extends Controller
 
     public function actionInformacion()
     {
-        return $this->render('informacion');
+        $model = new SolicitarInformacion();
+        if ($model->load(Yii::$app->request->post()) 
+                &&
+            $model->contact(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('enviadaSolicitud');
+            
+            return $this->refresh();
+        }
+        
+        return $this->render('informacion', [
+            'model' => $model,
+        ]);
     }
 
 }
